@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.nagarro.nagp</groupId>
-	<artifactId>yara-core</artifactId>
+	<artifactId>yara-app-core</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
@@ -18,12 +18,12 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 	<modules>
-		<module>yara-core-boot</module>
-		<module>yara-core-logging</module>
-		<module>yara-core-exception</module>
-		<module>yara-core-mysql-datasource</module>
-		<module>yara-core-common</module>
-		<module>yara-core-amqp</module>
+		<module>yara-app-core-boot</module>
+		<module>yara-app-core-logging</module>
+		<module>yara-app-core-exception</module>
+		<module>yara-app-core-mysql-datasource</module>
+		<module>yara-app-core-common</module>
+		<module>yara-app-core-amqp</module>
 	</modules>
 
 	<build>
@@ -77,36 +77,36 @@
 			<!-- YaraApp Core child dependencies -->
 			<dependency>
 				<groupId>com.nagarro.nagp</groupId>
-				<artifactId>yara-core-boot</artifactId>
+				<artifactId>yara-app-core-boot</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
 
 			<dependency>
 				<groupId>com.nagarro.nagp</groupId>
-				<artifactId>yara-core-common</artifactId>
+				<artifactId>yara-app-core-common</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
 
 			<dependency>
 				<groupId>com.nagarro.nagp</groupId>
-				<artifactId>yara-core-logging</artifactId>
+				<artifactId>yara-app-core-logging</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
 
 			<dependency>
 				<groupId>com.nagarro.nagp</groupId>
-				<artifactId>yara-core-exception</artifactId>
+				<artifactId>yara-app-core-exception</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
 
 			<dependency>
 				<groupId>com.nagarro.nagp</groupId>
-				<artifactId>yara-core-mysql-datasource</artifactId>
+				<artifactId>yara-app-core-mysql-datasource</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.nagarro.nagp</groupId>
-				<artifactId>yara-core-amqp</artifactId>
+				<artifactId>yara-app-core-amqp</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
 
