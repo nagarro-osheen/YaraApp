@@ -5,11 +5,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.nagarro.nagp</groupId>
-	<artifactId>yara-app-core</artifactId>
+	<artifactId>amcart-core</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>YaraApp Core Parent</name>
+	<name>AmCart Core Parent</name>
 	<description>Parent Pom for Amcart</description>
 
 	<properties>
@@ -18,12 +18,12 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 	<modules>
-		<module>yara-app-core-boot</module>
-		<module>yara-app-core-logging</module>
-		<module>yara-app-core-exception</module>
-		<module>yara-app-core-mysql-datasource</module>
-		<module>yara-app-core-common</module>
-		<module>yara-app-core-amqp</module>
+		<module>amcart-core-boot</module>
+		<module>amcart-core-logging</module>
+		<module>amcart-core-exception</module>
+		<module>amcart-core-mysql-datasource</module>
+		<module>amcart-core-common</module>
+		<module>amcart-core-amqp</module>
 	</modules>
 
 	<build>
@@ -74,39 +74,39 @@
 
 	<dependencyManagement>
 		<dependencies>
-			<!-- YaraApp Core child dependencies -->
+			<!-- AmCart Core child dependencies -->
 			<dependency>
 				<groupId>com.nagarro.nagp</groupId>
-				<artifactId>yara-app-core-boot</artifactId>
+				<artifactId>amcart-core-boot</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
 
 			<dependency>
 				<groupId>com.nagarro.nagp</groupId>
-				<artifactId>yara-app-core-common</artifactId>
+				<artifactId>amcart-core-common</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
 
 			<dependency>
 				<groupId>com.nagarro.nagp</groupId>
-				<artifactId>yara-app-core-logging</artifactId>
+				<artifactId>amcart-core-logging</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
 
 			<dependency>
 				<groupId>com.nagarro.nagp</groupId>
-				<artifactId>yara-app-core-exception</artifactId>
+				<artifactId>amcart-core-exception</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
 
 			<dependency>
 				<groupId>com.nagarro.nagp</groupId>
-				<artifactId>yara-app-core-mysql-datasource</artifactId>
+				<artifactId>amcart-core-mysql-datasource</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.nagarro.nagp</groupId>
-				<artifactId>yara-app-core-amqp</artifactId>
+				<artifactId>amcart-core-amqp</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
 

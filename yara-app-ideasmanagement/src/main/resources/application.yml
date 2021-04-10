@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: yara-app-ordermanagement
+  jpa:
+    hibernate:
+      ddl-auto:  create
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true  
+server:
+  port: 8084
+mysql:
+  datasource:
+    url: jdbc:mysql://localhost:3306/yara-app_ordermanagement?useSSL=false
+    username: root
+    password: mysql

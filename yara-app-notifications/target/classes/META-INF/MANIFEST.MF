@@ -2,5 +2,5 @@ Manifest-Version: 1.0
 Built-By: osheengulati
 Build-Jdk: 1.8.0_201
 Created-By: Maven Integration for Eclipse
-Main-Class: com.nagarro.nagp.yara-app.Application
+Main-Class: com.nagarro.nagp.amcart.Application
 

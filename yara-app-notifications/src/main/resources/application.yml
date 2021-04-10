@@ -1,6 +1,6 @@
 spring:
   application:
-    name: yara-app-notifications
+    name: amcart-notifications
   rabbitmq:
     host: localhost
 server:
@@ -14,7 +14,7 @@ notifications:
     port: 587
 mysql:
   datasource:
-    url: jdbc:mysql://localhost:3306/yara-app_notification
+    url: jdbc:mysql://localhost:3306/amcart_notification
     username: root
     password: 
 infra:

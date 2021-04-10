@@ -1,9 +1,9 @@
 spring:
   application:
-    name: yara-app-infra-apigateway
+    name: amcart-infra-apigateway
 zuul:
   ignoredServices: '*'
   routes:
-    yara-app-userprofile: /profile/**
-    yara-app-ordermanagement: /order/**
-    yara-app-inventory: /inventory/**
+    amcart-userprofile: /profile/**
+    amcart-ordermanagement: /order/**
+    amcart-inventory: /inventory/**
