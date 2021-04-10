@@ -6,13 +6,13 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.nagarro.nagp</groupId>
-		<artifactId>amcart-core</artifactId>
+		<artifactId>yara-core</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>amcart-core-amqp</artifactId>
+	<artifactId>yara-core-amqp</artifactId>
 
-	<name>amcart-core-amqp</name>
+	<name>yara-core-amqp</name>
 	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

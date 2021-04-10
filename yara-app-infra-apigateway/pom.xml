@@ -4,15 +4,15 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>amcart-infra-apigateway</artifactId>
+	<artifactId>yara-infra-apigateway</artifactId>
 	<packaging>jar</packaging>
 
-	<name>amcart-infra-serviceregistry</name>
-	<description>AmCart Infra API Gateway</description>
+	<name>yara-infra-serviceregistry</name>
+	<description>YaraApp Infra API Gateway</description>
 
 	<parent>
 		<groupId>com.nagarro.nagp</groupId>
-		<artifactId>amcart-core</artifactId>
+		<artifactId>yara-core</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
@@ -20,13 +20,13 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<start-class>com.nagarro.nagp.amcart.Application</start-class>
+		<start-class>com.nagarro.nagp.yara.Application</start-class>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>com.nagarro.nagp</groupId>
-			<artifactId>amcart-core-boot</artifactId>
+			<artifactId>yara-core-boot</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>

@@ -4,11 +4,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>yara-app-inventory</artifactId>
+	<artifactId>yara-app-asset-management</artifactId>
 	<packaging>jar</packaging>
-
-	<name>yara-app-inventory</name>
-	<description>YaraApp Inventory Microservice</description>
+	<name>yara-app-asset-management</name>
+	<description>YaraApp Asset Management Microservice</description>
 
 	<parent>
 		<groupId>com.nagarro.nagp</groupId>

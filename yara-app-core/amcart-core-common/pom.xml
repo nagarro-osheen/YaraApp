@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>amcart-core-common</artifactId>
+    <artifactId>yara-core-common</artifactId>
     <packaging>jar</packaging>
-    <name>AmCart Core Common</name>
-    <description>Common constants and Utilities for AmCart</description>
+    <name>YaraApp Core Common</name>
+    <description>Common constants and Utilities for YaraApp</description>
    
 	<parent>
 		<groupId>com.nagarro.nagp</groupId>
-		<artifactId>amcart-core</artifactId>
+		<artifactId>yara-core</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
@@ -55,7 +55,7 @@
 		</dependency>
 			<dependency>
 			<groupId>com.nagarro.nagp</groupId>
-			<artifactId>amcart-core-amqp</artifactId>
+			<artifactId>yara-core-amqp</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>

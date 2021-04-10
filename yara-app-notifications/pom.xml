@@ -7,12 +7,12 @@
 
 	<parent>
 		<groupId>com.nagarro.nagp</groupId>
-		<artifactId>amcart-core</artifactId>
+		<artifactId>yara-core</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>amcart-notifications</artifactId>
-	<name>amcart-notifications</name>
+	<artifactId>yara-notifications</artifactId>
+	<name>yara-notifications</name>
 
 	<url>http://maven.apache.org</url>
 
@@ -20,29 +20,29 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<start-class>com.nagarro.nagp.amcart.Application</start-class>
+		<start-class>com.nagarro.nagp.yara.Application</start-class>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>com.nagarro.nagp</groupId>
-			<artifactId>amcart-core-boot</artifactId>
+			<artifactId>yara-core-boot</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.nagarro.nagp</groupId>
-			<artifactId>amcart-core-logging</artifactId>
+			<artifactId>yara-core-logging</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.nagarro.nagp</groupId>
-			<artifactId>amcart-core-exception</artifactId>
+			<artifactId>yara-core-exception</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.nagarro.nagp</groupId>
-			<artifactId>amcart-core-common</artifactId>
+			<artifactId>yara-core-common</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.nagarro.nagp</groupId>
-			<artifactId>amcart-core-mysql-datasource</artifactId>
+			<artifactId>yara-core-mysql-datasource</artifactId>
 		</dependency>
 
 		<dependency>

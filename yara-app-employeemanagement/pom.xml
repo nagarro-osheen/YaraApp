@@ -4,11 +4,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>yara-app-userprofile</artifactId>
+	<artifactId>yara-app-employee-management</artifactId>
 	<packaging>jar</packaging>
 
-	<name>yara-app-userprofile</name>
-	<description>YaraApp User Profile Microservice</description>
+	<name>yara-app-employee-management</name>
+	<description>YaraApp Employee Management Microservice</description>
 
 	<parent>
 		<groupId>com.nagarro.nagp</groupId>

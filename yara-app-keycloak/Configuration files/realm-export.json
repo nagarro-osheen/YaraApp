@@ -1116,7 +1116,7 @@
     "strictTransportSecurity": "max-age=31536000; includeSubDomains"
   },
   "smtpServer": {},
-  "loginTheme": "AmCartTheme",
+  "loginTheme": "YaraAppTheme",
   "eventsEnabled": false,
   "eventsListeners": [
     "jboss-logging"
@@ -1182,7 +1182,7 @@
       "identityProviderAlias": "twitter",
       "identityProviderMapper": "oidc-hardcoded-role-idp-mapper",
       "config": {
-        "role": "AmCartApp.user"
+        "role": "YaraAppApp.user"
       }
     }
   ],

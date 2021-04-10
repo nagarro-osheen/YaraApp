@@ -1,6 +1,6 @@
 {
-  "id": "ClientAmCartApp",
-  "realm": "ClientAmCartApp",
+  "id": "ClientYaraAppApp",
+  "realm": "ClientYaraAppApp",
   "notBefore": 0,
   "revokeRefreshToken": false,
   "refreshTokenMaxReuse": 0,
@@ -60,9 +60,9 @@
     }
   ],
   "clientScopeMappings": {
-    "AmCartApp": [
+    "YaraAppApp": [
       {
-        "clientScope": "AmCartApp",
+        "clientScope": "YaraAppApp",
         "roles": [
           "uma_protection",
           "user"
@@ -459,7 +459,7 @@
     },
     {
       "id": "b45801c6-a18a-4e77-8eab-27ff129057ad",
-      "clientId": "AmCartApp",
+      "clientId": "YaraAppApp",
       "surrogateAuthRequired": false,
       "enabled": true,
       "clientAuthenticatorType": "client-secret",
@@ -561,7 +561,7 @@
         "resources": [
           {
             "name": "Default Resource",
-            "type": "urn:AmCartApp:resources:default",
+            "type": "urn:YaraAppApp:resources:default",
             "ownerManagedAccess": false,
             "attributes": {},
             "_id": "06017ffb-4e2d-45a3-afc8-3a4ddfadf7b6",
@@ -590,7 +590,7 @@
             "logic": "POSITIVE",
             "decisionStrategy": "UNANIMOUS",
             "config": {
-              "defaultResourceType": "urn:AmCartApp:resources:default",
+              "defaultResourceType": "urn:YaraAppApp:resources:default",
               "applyPolicies": "[\"Default Policy\"]"
             }
           }
@@ -607,13 +607,13 @@
       "id": "a5205ca5-cfd1-45a4-87e3-abfd8b87d310",
       "clientId": "security-admin-console",
       "name": "${client_security-admin-console}",
-      "baseUrl": "/auth/admin/ClientAmCartApp/console/index.html",
+      "baseUrl": "/auth/admin/ClientYaraAppApp/console/index.html",
       "surrogateAuthRequired": false,
       "enabled": true,
       "clientAuthenticatorType": "client-secret",
       "secret": "**********",
       "redirectUris": [
-        "/auth/admin/ClientAmCartApp/console/*"
+        "/auth/admin/ClientYaraAppApp/console/*"
       ],
       "webOrigins": [],
       "notBefore": 0,
@@ -662,7 +662,7 @@
       "id": "d859a598-e486-455d-933e-e8a4418f008f",
       "clientId": "account",
       "name": "${client_account}",
-      "baseUrl": "/auth/realms/ClientAmCartApp/account",
+      "baseUrl": "/auth/realms/ClientYaraAppApp/account",
       "surrogateAuthRequired": false,
       "enabled": true,
       "clientAuthenticatorType": "client-secret",
@@ -672,7 +672,7 @@
         "view-profile"
       ],
       "redirectUris": [
-        "/auth/realms/ClientAmCartApp/account/*"
+        "/auth/realms/ClientYaraAppApp/account/*"
       ],
       "webOrigins": [],
       "notBefore": 0,
@@ -739,22 +739,22 @@
   "clientScopes": [
     {
       "id": "442932ee-7f25-49e8-962b-0b73b840e0c5",
-      "name": "AmCartApp",
-      "description": "Client scope useful for frontend clients, which want to call service AmCartApp",
+      "name": "YaraAppApp",
+      "description": "Client scope useful for frontend clients, which want to call service YaraAppApp",
       "protocol": "openid-connect",
       "attributes": {
-        "consent.screen.text": "AmCartApp",
+        "consent.screen.text": "YaraAppApp",
         "display.on.consent.screen": "true"
       },
       "protocolMappers": [
         {
           "id": "4ae6dcea-c222-492c-ac41-216fd1ee1613",
-          "name": "Audience for AmCartApp",
+          "name": "Audience for YaraAppApp",
           "protocol": "openid-connect",
           "protocolMapper": "oidc-audience-mapper",
           "consentRequired": false,
           "config": {
-            "included.client.audience": "AmCartApp",
+            "included.client.audience": "YaraAppApp",
             "access.token.claim": "true"
           }
         }
@@ -1204,7 +1204,7 @@
       "identityProviderAlias": "twitter",
       "identityProviderMapper": "oidc-hardcoded-role-idp-mapper",
       "config": {
-        "role": "AmCartApp.user"
+        "role": "YaraAppApp.user"
       }
     },
     {
@@ -1213,7 +1213,7 @@
       "identityProviderAlias": "facebook",
       "identityProviderMapper": "oidc-hardcoded-role-idp-mapper",
       "config": {
-        "role": "AmCartApp.user"
+        "role": "YaraAppApp.user"
       }
     }
   ],

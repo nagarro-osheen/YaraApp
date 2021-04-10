@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>amcart-core-exception</artifactId>
+	<artifactId>yara-core-exception</artifactId>
 	<packaging>jar</packaging>
-	<name>AmCart Core Exception</name>
-	<description>Exception Core frameworks for AmCart</description>
+	<name>YaraApp Core Exception</name>
+	<description>Exception Core frameworks for YaraApp</description>
 	<parent>
 		<groupId>com.nagarro.nagp</groupId>
-		<artifactId>amcart-core</artifactId>
+		<artifactId>yara-core</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<dependencies>
