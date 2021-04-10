@@ -1,0 +1,11 @@
+INSTALLATION FOR KEYCLOAK
+1. Download ZIP Archive for keycloak from: https://downloads.jboss.org/keycloak/4.7.0.Final/keycloak-4.7.0.Final.zip
+2. Unzip the ZIP Archive
+3. Go to bin folder
+4. Run standalone.bat file to boot up the server.
+5. Follow the Keycloak Setup document for initial Setup
+
+RUNNING KEYCLOAK SERVER
+1. Go to the directory where keycloak ZIP was unzipped.
+2. Go to bin folder
+3. Run standalone.bar file to boot up the server.

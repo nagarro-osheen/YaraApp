@@ -1,0 +1,19 @@
+<div class="col-xs-12">
+    <h6>BILLING ADDRESS</h6><br>
+    <user-address [address]="billingAddress" (validAddress)="billingAddressValid($event)" (completedAddress)="setBillingAddress($event)"></user-address>
+</div>
+<div class=" col-xs-12">
+    <div class="col-md-7 col-xs-6">
+        <input type="checkbox" class="stl" value="2" name="checkbox" id="checkbox4" [(ngModel)]="sameShippingAddress"
+        (change)="sameShippingAddressChanged()">
+        <label class="stl checkbox" for="checkbox4"><span></span>My dilivery and billing
+            addresses are the same</label><br>
+    </div>
+</div>
+<div class="col-xs-12" *ngIf="!sameShippingAddress">
+    <h6>SHIPPING ADDRESS</h6><br>
+    <div class="row">
+        <user-address [address]="shippingAddress" (validAddress)="shippingAddressValid($event)"
+            (completedAddress)="setShippingAddress($event)"></user-address>
+    </div>
+</div>

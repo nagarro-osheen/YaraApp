@@ -1,0 +1,108 @@
+<div class="pg-body">
+  <div class="container contact">
+     <div class="row">
+        <div class="col-md-9 col-sm-12">
+           <form (ngSubmit)="leaveReply(personModel)"
+           #personDetailsForm="ngForm"
+            class="validation-engine">
+              <div class="google-maps">
+                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d89553.25418528763!2d9.19406272678945!3d45.458941223623455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786c1493f1275e7%3A0x3cffcd13c6740e8d!2sMilan!5e0!3m2!1sen!2s!4v1403031740860" width="370" height="150"></iframe>
+              </div>
+              <h6>LEAVE A REPLY</h6>
+              <div class="row">
+                 <div class="col-sm-6 col-xs-12">
+                    <div class="required form-group">
+                       <input type="text"
+                        [(ngModel)]="personModel.name"
+                        name="name"
+                        #name="ngModel"
+                        required
+                        class="form-control validate[required]" 
+                        data-prompt-position="topLeft" 
+                        placeholder="Name *">
+                        <div [hidden]="name.valid || name.pristine"
+                            class="alert alert-danger">
+                          Name is required
+                        </div>
+                    </div>
+                    <div class="required form-group">
+                       <input type="email" 
+                       [(ngModel)]="personModel.email"
+                       name="email"
+                       required
+                       #email="ngModel"
+                       class="form-control validate[required,custom[email]]" 
+                       data-prompt-position="topLeft"
+                       placeholder="E-mail *">
+                       <div [hidden]="email.valid || email.pristine"
+                            class="alert alert-danger">
+                          Email is required
+                        </div>
+                    </div>
+                    <div class="required form-group">
+                       <input type="text" 
+                       [(ngModel)]="personModel.subject"
+                       name="subject"
+                       required
+                       #subject="ngModel"
+                       class="form-control validate[required]" 
+                       data-prompt-position="topLeft" 
+                       placeholder="Enter your subject *">
+                       <div [hidden]="subject.valid || subject.pristine"
+                            class="alert alert-danger">
+                          Subject is required
+                        </div>
+                    </div>
+                    <p>Your email adress will not published. Required fields are marked *</p>
+                 </div>
+                 <div class="col-sm-6 col-xs-12">
+                    <div class="required form-group">
+                       <textarea class="form-control validate[required]" 
+                       [(ngModel)]="personModel.reply"
+                       data-prompt-position="topLeft" 
+                       name="reply"
+                       rows="6"
+                       placeholder="Your reply"></textarea>
+                    </div>
+                    <div class="required form-group">
+                       <button class="btn btn-sm btn-third-col col-xs-12" 
+                       type="submit"
+                       ng-submit="leaveReply()"
+                       [disabled]="!personDetailsForm.form.valid"
+                       >LEAVE REPLY</button>
+                    </div>
+                 </div>
+              </div>
+           </form>
+        </div>
+        <div class="col-sm-12 col-md-3">
+           <h6>CONTACT PERSON</h6>
+           <div class="person">
+              <div class="img-cover"><img src="images/av_3.jpg" alt="#"></div>
+              <div class="name">John Doe<span> – Director</span></div>
+              <div class="smart-phone"><i class="icon-screen-smartphone"></i><span>+1(800)2364 322 23 16</span></div>
+              <div class="email"><i class="icon-envelope-open"></i><a href="mailto:milan@gmail.com">milan@gmail.com</a></div>
+           </div>
+           <div class="person">
+              <div class="img-cover"><img src="images/av_2.jpg" alt="#"></div>
+              <div class="name">Michael Doe<span> – Manager</span></div>
+              <div class="smart-phone"><i class="icon-screen-smartphone"></i><span>+1(800)2364 322 23 16</span></div>
+              <div class="email"><i class="icon-envelope-open"></i><a href="mailto:milan@gmail.com">milan@gmail.com</a></div>
+           </div>
+           <div class="person">
+              <div class="img-cover"><img src="images/av_1.jpg" alt="#"></div>
+              <div class="name">Justin  Doe<span> – Assistant Manager</span></div>
+              <div class="smart-phone"><i class="icon-screen-smartphone"></i><span>+1(800)2364 322 23 16</span></div>
+              <div class="email"><i class="icon-envelope-open"></i><a href="mailto:milan@gmail.com">milan@gmail.com</a></div>
+           </div>
+           <div class="detail">
+              <h6>CONTACT</h6>
+              <div class="phone"><i class="icon-call-end"></i><span>+1(800)2364 322 23 16</span></div>
+              <div class="smart-phone"><i class="icon-screen-smartphone"></i><span>+1(800)2364 322 23 16</span></div>
+              <div class="email"><i class="icon-envelope-open"></i><a href="mailto:milan@gmail.com">milan@gmail.com</a></div>
+              <div class="skype"><i class="social_skype"></i><span>Milan_best_template</span></div>
+           </div>
+        </div>
+     </div>
+  </div>
+</div>

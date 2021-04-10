@@ -1,0 +1,220 @@
+
+<div class="pg-body clearfix">
+  <div class="container clearfix">
+     <div class="row">
+        <div class="container">
+           <div class="col-xs-12 product-top-line">
+              <a [routerLink]="['/home']" class="btn btn-yet-col col-xs-2 back-catalog pull-left">BACK IN CATALOG</a>
+           </div>
+        </div>
+     </div>
+     <div class="row">
+        <div class="col-md-6 col-lg-7 col-xs-12 product-images">
+           <div class="clearfix zoom-content">
+             <div class="clearfix thumbnails">
+               <div class="img-zoom-container" *ngIf="productItem?.mainImageUrl; else noImageBlock"
+               (mouseenter)="imageZoom('product-detail-image', 'zoomedPic');"
+               (mouseleave)="zoomout()">
+                  <img id="product-detail-image" [src]="productItem?.mainImageUrl"
+                  >   
+               </div> 
+               <ng-template #noImageBlock>
+                  <img src="assets/images/no-image-available.jpg"
+                   id="no-product-detail-image">
+               </ng-template>
+              </div>
+
+             
+           </div>
+           <div class="article-info col-xs-12">
+              <div class="for-border-top share-wrapp clearfix">
+                <!--TO DO-->
+                 <span class="h7">SHARE PRODUCT</span>
+                 <ul class="list-inline social-buttons">
+                     <li>
+                        <fb-like url="https://www.facebook.com/Amcart-368639920621352"></fb-like>
+                     </li>
+                     <li class="tweet-social-tag">
+                        <tweet text="{{tweetMsg}}"></tweet></li>
+                     <li>
+                        <google-plus class="gplus"></google-plus></li>
+                     <li>
+                        <linkedin-share></linkedin-share></li>
+                 </ul>
+              </div>
+            
+           </div> 
+        </div>
+
+        <div class="col-md-6 col-lg-5 col-xs-12 product-info">
+            <div #zoomPicContainer id="zoomedPic" class="img-zoom-result"></div>
+           <div class="product-reviews">
+        
+              <h3>{{productItem?.productName}}</h3>
+              <span class="stars-rating stars-{productItem.ratings}"><span class="stars"></span></span>
+              <a [routerLink]="['/review', productItem?.id]" 
+              *ngIf="productItem?.reviews?.length > 0"
+             >{{productItem.reviews.length}} Reviewer(s)</a>
+              <a (click)="scroll(reviewContainer)">Add Review</a>
+           </div>
+           <div class="hr"></div>
+           <div class="price">
+              Rs {{productItem?.price}}
+              <!-- <span class="old-price">$900.00</span> -->
+           </div>
+
+           <div class="hr"></div>
+           <p class="data-info">Product Code: <span>{{productItem?.productCode}}</span></p>
+           <p class="data-info">Product Tags: 
+              <span *ngFor="let tag of productItem?.tags; let isLast=last">
+               {{tag}} {{isLast ? '' : ', '}}
+              </span></p>
+           <p class="data-info">Category: <span>
+              {{productItem?.categoryId.name}}
+           </span></p>
+           <div class="hr"></div>
+           <p>{{productItem?.description}}</p>
+           <div class="col-xs-12 tech-info">
+              <div class="col-sm-4 col-xs-12" *ngFor="let specs of productItem?.specifications">
+               <div>{{specs.key}}: {{specs.value}}</div>
+              </div>
+           </div>
+          
+       <span class="data-info secondary-font-family">COLOR:</span>
+           <div></div>
+           <p class="availability col-sm-pull-right col-xs-pull-left">
+               Availability: 
+               <span *ngIf="inStock" >
+                  <span class="in-stock"></span>In Stock
+               </span>
+               <span *ngIf="!inStock">
+                  <span class="out-stock"></span>Out of Stock
+               </span>
+            </p>
+           <span class="color-blocks" *ngFor="let c of colors; index as i">
+               <div class="radio-inline color" 
+               (click)="handleColorChange(i)">
+                  <label for="radio-color-{i}" class={{c}}>
+                  </label>
+               </div>
+            </span>
+            
+          
+           <div class="hr"></div>
+           <div class="cart_quantity_button clrfix product-count pull-left">
+              <!-- <a rel="nofollow" class="btn btn-default btn-minus" href="#" title="Subtract">&ndash;</a> -->
+              <button title="Subtract" (click)="reduceCount(quantity)" class="cart_quantity_input form-control grey btn-minus" rel="nofollow">-</button>
+              <input type="text" [(ngModel)]="quantity" disabled="" size="2" autocomplete="off" class="cart_quantity_input form-control grey count" [value]="product?.quantity" name="quantity">
+              <button title="Add" (click)="addCount(quantity)" href="#" class="cart_quantity_input form-control grey cart-plus" rel="nofollow">+</button>
+              <!-- <a rel="nofollow" class="btn btn-default btn-plus" href="#" title="Add">+</a> -->
+           </div>
+           <button class="btn btn-sec-col pull-left add-cart" (click)="addCart(productItem)"><i class="icon-bag"></i>&nbsp;&nbsp;ADD TO CART</button>
+           <button class="btn btn-gray" (click)="addWishlist(productItem)"><span class="icon-heart"></span></button>
+           <a class="btn btn-gray" (click)="addToCompare()"><span class="arrow_left-right_alt"></span></a>
+           <div class="hr"></div>
+           <div class="product-tabs">
+              <!-- Nav tabs -->
+              <ul role="tablist" class="nav nav-tabs">
+                  <li [ngClass]="{active : activeTab==='description'}">
+                     <a data-toggle="tab" role="tab" 
+                     href="#tab-description"
+                     (click)="switchTab('description')">DESCRIPTION</a></li>
+                  <li [ngClass]="{active : activeTab==='review'}">
+                     <a data-toggle="tab" role="tab" 
+                     href="#tab-review" id="review-btn" 
+                     (click)="switchTab('review')">REVIEWS</a></li>
+               </ul>
+               <div class="tab-content">
+                     <div id="tab-description" class="tab-pane active"
+                     *ngIf="activeTab === 'description'">      
+                        <p>{{productItem?.description}}</p>
+                     </div>
+                     
+                     <div id="tab-review" 
+                     #reviewContainer
+                     class="tab-pane" 
+                     *ngIf="activeTab === 'review'">
+                        <form #reviewForm="ngForm" (ngSubmit)="submitReview(reviewForm)">
+                           <div class="row" >
+                              <div class="col-md-6 col-xs-12">
+                                 <div class="form-group required">
+                                    <label class="type-text">Name*
+                                       <input type="text" class="form-control placeholder-fix"
+                                       [(ngModel)]="reviewForm.name"
+                                       name="name"
+                                       >
+                                    </label></div>
+                              </div>
+                             
+                              <div class="col-md-6 col-xs-12">
+                                 <div class="form-group required">
+                                    <label class="type-text">Email*
+                                       <input type="email" class="form-control placeholder-fix"
+                                       [(ngModel)]="reviewForm.email"
+                                       pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                                       name="email">
+                                    </label></div>
+                              </div>
+                              <div class="col-xs-12">
+                                 <div class="you-rating form-control" >
+                                    <div class="data-info secondary-font-family">Your Rating</div>
+                                    <a (click)="rating = 1">
+                                       <span class="stars-rating stars-1"
+                                       ><span class="stars"></span></span></a>
+                                    <a (click)="rating = 2">
+                                       <span class="stars-rating stars-2"
+                                       ><span class="stars"></span></span></a>
+                                    <a (click)="rating = 3">
+                                       <span class="stars-rating stars-3"
+                                       ><span class="stars"></span></span></a>
+                                    <a (click)="rating = 4">
+                                       <span class="stars-rating stars-4"
+                                       ><span class="stars"></span></span></a>
+                                    <a (click)="rating = 5">
+                                       <span class="stars-rating stars-5"
+                                       ><span class="stars"></span></span></a>
+                                 </div>
+                                 <div class="data-info secondary-font-family">Your Review</div>
+                                 <div class="required form-group">
+                                    <textarea 
+                                    class="form-control placeholder-fix" 
+                                    rows="4"
+                                    name="reviewContent"
+                                    [(ngModel)]="reviewForm.review"></textarea>
+                                 </div>
+                                 <button type="submit" 
+                                 class="btn btn-lg btn-sec-col col-xs-12"
+                                 [disabled]="!reviewForm.form.valid"
+                                 >SUBMIT REVIEW</button>
+                              </div>
+                           </div>
+                        </form>
+                  </div>
+              </div>
+           </div>
+        </div>
+     </div>
+  </div>
+  <section>
+     <div class="container best-product">
+        <div class="col-xs-12"><h6>RELATED PRODUCTS</h6></div>
+        <div class="gap-70"></div>
+        <div class="products-list pl-carousel">
+           <ul class="pl-pages">
+              <li class="active">
+                 <div class="row">
+                    <!-- <app-product></app-product> -->
+                 </div>
+              </li>
+              
+           </ul>
+           <div class="pl-controls">
+              <a href="#" class="pl-ctl-left"></a>
+              <a href="#" class="pl-ctl-right"></a>
+           </div>
+        </div>
+     </div>
+  </section>
+
+ 
+</div> <!-- pg-body -->

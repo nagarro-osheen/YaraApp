@@ -1,0 +1,10 @@
+<div class="col-xs-12" *ngIf="isComponentReady">
+        <div class="form-group radio" *ngFor="let paymentMethod of paymentMethods">
+           <input type="radio" class="stl" name="payment_method" id="pm_{{paymentMethod.paymentMethodId}}" [value]="paymentMethod.paymentMethodId"
+           [(ngModel)]="selectedPaymentMethod" (change)="paymentMethodUpdated(paymentMethod)">
+           <label for="pm_{{paymentMethod.paymentMethodId}}" class="stl"><span><span></span></span>{{paymentMethod.displayValue}}
+            <img [src]="paymentMethod.imageUrl" *ngIf="paymentMethod.imageUrl">
+            </label>
+           <p class="caption">{{paymentMethod.description}}</p>
+        </div>
+     </div>

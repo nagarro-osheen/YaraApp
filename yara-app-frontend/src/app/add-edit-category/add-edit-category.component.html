@@ -1,0 +1,27 @@
+<div>
+    <h3 *ngIf="!editCategoryId">Add Category</h3>
+    <h3 *ngIf="editCategoryId">Edit Category</h3>
+    <form #form="ngForm">
+    <div class="row">
+      <div class="col-md-4">
+          <div class="form-group">
+              <label class="type-text">Name<br><input type="text" (ngModelChange)="updatePath(form.value.parent,$event)" name="name" class="form-control placeholder-fix"  required ngModel></label>
+           </div>
+           <div class="form-group">
+              <label class="type-text">Parent<br>
+                <select class="form-control placeholder-fix" name="parent" (ngModelChange)="updatePath($event,form.value.name)"  ngModel>
+                    <option *ngFor="let c of categories"  [value]="c.id">{{c.name}} ({{c.path}})</option>
+                  </select>
+              </label>
+           </div>
+           <div class="form-group">
+              <label class="type-text">Path<br><input disabled name="path" type="text"  class="form-control placeholder-fix"  required [(ngModel)]="path" ></label>
+           </div>
+    </div>
+    </div>
+    <div class="row">
+        <button *ngIf="!editCategoryId" type="submit" [disabled]="form.invalid" class="btn btn-warning pull-right"  (click)="submitForm(form.value)">Add Category</button>
+        <button *ngIf="editCategoryId" type="submit" [disabled]="form.invalid" class="btn btn-warning pull-right"  (click)="submitEdit(form.value)">Save Category</button>
+    </div>
+    </form>
+</div>

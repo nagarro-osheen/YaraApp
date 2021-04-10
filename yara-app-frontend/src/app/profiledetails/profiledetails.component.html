@@ -1,0 +1,64 @@
+<div class="col-md-10 col-sm-12 col-xs-12" *ngIf="isComponentReady">
+   <h6 class="account-table-head">PERSONAL DETAIL</h6>
+
+   <form (ngSubmit)="userProfileForm.form.valid && saveUserDetails(usermodel)" #userProfileForm="ngForm" class="personal-detail">
+      <div class="row">
+         <div class="col-sm-6 col-xs-12">
+            <div class="form-group">
+               <input type="radio" [(ngModel)]="usermodel.title" class="stl" name="sex" id="sex-mr" value="Mr.">
+               <label for="sex-mr" class="stl"><span><span></span></span>Mr.</label>
+               <input type="radio" [(ngModel)]="usermodel.title" class="stl" name="sex" id="sex-ms" value="Ms.">
+               <label for="sex-ms" class="stl"><span><span></span></span>Ms.</label>
+            </div>
+            <div class="form-group">
+               <label class="type-text">First Name *<br><input type="text" name="name" #name="ngModel" [(ngModel)]="usermodel.firstName"
+                     class="form-control placeholder-fix" [ngClass]="{ 'is-invalid': userProfileForm.submitted && name.invalid }"
+                     required></label>
+               <div *ngIf="userProfileForm.submitted && name.invalid" class="invalid-feedback">
+                  <div *ngIf="name.errors.required">First Name is required</div>
+               </div>
+            </div>
+            <div class="form-group">
+               <label class="type-text">Last Name *<input type="text" #username="ngModel" [(ngModel)]="usermodel.lastName"
+                     class="form-control placeholder-fix" name="username" [ngClass]="{ 'is-invalid': userProfileForm.submitted && username.invalid }"
+                     required></label>
+               <div *ngIf="userProfileForm.submitted && username.invalid" class="invalid-feedback">
+                  <div *ngIf="username.errors.required"> Last Name is required</div>
+               </div>
+            </div>
+            <div class="form-group">
+               <label class="type-text">Email *<input type="email" #email="ngModel" [(ngModel)]="usermodel.email" class="form-control placeholder-fix"
+                     name="email" [ngClass]="{ 'is-invalid': userProfileForm.submitted && email.invalid }" required></label>
+               <div *ngIf="userProfileForm.submitted && email.invalid" class="invalid-feedback">
+                  <div *ngIf="email.errors.required"> Email is required</div>
+               </div>
+            </div>
+            <div class="form-group">
+               <label class="type-text">Phone number *<input type="tel" #phone="ngModel" [(ngModel)]="usermodel.phone"
+                     class="form-control placeholder-fix" name="phone" [ngClass]="{ 'is-invalid': userProfileForm.submitted && phone.invalid }"
+                     required></label>
+               <div *ngIf="userProfileForm.submitted && phone.invalid" class="invalid-feedback">
+                  <div *ngIf="phone.errors.required"> Phone is required</div>
+               </div>
+            </div>
+            <div class="form-group">
+               <label class="type-text">Date of Birth *</label>
+               <p-calendar [(ngModel)]="usermodel.dob" name="dob"></p-calendar>
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <billing-shipping-address [billingAddress]="usermodel.billingAddress" [shippingAddress]="usermodel.shippingAddress"
+            [sameShippingAddress]="usermodel.sameShippingAddress" (sameBillingShippingAddress)="sameShippingAddressChanged($event)"
+            (completedBillingAddress)="setCompletedBillingAddress($event)" (completedShippingAddress)="setCompletedShippingAddress($event)"
+            (addressesValid)="setAddressesValid($event)">
+         </billing-shipping-address>
+      </div>
+      <div class="row">
+         <div class="col-xs-12">
+            <button type="submit" class="btn btn-lg btn-sec-col" [disabled]="!areAddressesValid">SAVE
+               SETTINGS</button>
+         </div>
+      </div>
+   </form>
+</div>

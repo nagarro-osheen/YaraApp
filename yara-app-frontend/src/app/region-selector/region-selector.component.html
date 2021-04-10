@@ -1,0 +1,40 @@
+<div *ngIf="isComponentReady">
+   <div class="row">
+      <div class="required form-group col-xs-12">
+         <label class="type-text">Country *</label>
+         <select [(ngModel)]="address.country" class="form-control" required name="country" #billCountry="ngModel"
+            (change)="onCountryChange($event.target.value)">
+            <option *ngFor="let country of countryInfo" value="{{country.name}}">
+               {{country.name}}
+            </option>
+         </select>
+         <!-- <div *ngIf="userProfileForm.submitted && billCountry.invalid" class="invalid-feedback">
+          <div *ngIf="billCountry.errors.required"> Country is required</div>
+       </div> -->
+      </div>
+   </div>
+   <div class="form-group">
+      <label class="type-text">Region/State *<br></label>
+      <select [(ngModel)]="address.state" class="form-control" required name="state" #billState="ngModel" (change)="onChangeState($event.target.value)">
+         <option *ngFor="let state of stateInfo | keyvalue" value="{{state.key}}">
+            {{state.key}}
+         </option>
+      </select>
+      <!-- <div *ngIf="userProfileForm.submitted && billState.invalid" class="invalid-feedback">
+       <div *ngIf="billState.errors.required"> State is required</div>
+    </div> -->
+
+   </div>
+   <div class="form-group">
+      <label class="type-text">City *<br></label>
+      <select [(ngModel)]="address.city" name="bill-city" #billCity="ngModel" class="form-control" required  (change)="onChangeCity()">
+         <option *ngFor="let city of cityInfo" value="{{city}}">
+            {{city}}
+         </option>
+      </select>
+      <!-- <div *ngIf="userProfileForm.submitted && billCity.invalid" class="invalid-feedback">
+       <div *ngIf="billCity.errors.required"> City is required</div>
+    </div> -->
+
+   </div>
+</div>

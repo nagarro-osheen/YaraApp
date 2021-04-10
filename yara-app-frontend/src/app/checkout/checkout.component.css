@@ -1,0 +1,10 @@
+#accordion-order .big-button .btn-lg {
+    font: 14px/54px "Open Sans", sans-serif;
+    padding: 0;
+    width: 250px;
+    vertical-align: middle;
+}
+.btn-third-col {
+    background: #060606;
+    color: #dccc99;
+}

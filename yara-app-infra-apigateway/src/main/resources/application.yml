@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: yara-app-infra-apigateway
+zuul:
+  ignoredServices: '*'
+  routes:
+    yara-app-userprofile: /profile/**
+    yara-app-ordermanagement: /order/**
+    yara-app-inventory: /inventory/**

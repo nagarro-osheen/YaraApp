@@ -1,0 +1,30 @@
+<table class="table" id="cart_summary">
+   <thead>
+      <tr>
+         <th>
+            Product
+         </th>
+         <th>
+            Quantity
+         </th>
+         <th>
+            Price
+         </th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr class="cart_item first_item address_0 odd dd-product-group" *ngFor="let orderItem of orderItems">
+         <td class="cart_product">
+            <a [routerLink]="['/product-detail/', orderItem.productId]">
+               <img [alt]="orderItem.productName" [src]="orderItem.imageUrl">
+            </a>
+         </td>
+         <td class="cart_description">
+            <div class="qty">{{orderItem.quantity}}</div>
+         </td>
+         <td class="cart_description">
+            <div class="qty"><span>{{orderItem.price | productPrice}}</span></div>
+         </td>
+      </tr>
+   </tbody>
+</table>

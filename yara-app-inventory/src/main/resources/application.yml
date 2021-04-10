@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: yara-app-inventory
+  data.mongodb:
+       host: localhost
+       port: 27017
+       database: yara-app_inventory
+       uri: mongodb://localhost:27017/yara-app_inventory
+server:
+  port: 8082

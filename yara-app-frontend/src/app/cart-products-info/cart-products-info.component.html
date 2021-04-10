@@ -1,0 +1,39 @@
+<table class="table table-bordered" id="cart_summary">
+      <thead>
+          <tr>
+              <th colspan="2" class="cart_product first_item">Product name</th>
+              <th class="cart_unit item">Price</th>
+              <th class="cart_quantity item">QUANTITY</th>
+              <th class="cart_delete last_item">SUBTOTAL</th>
+          </tr>
+      </thead>
+      <tbody class="dropdown-product-list">
+          <tr class="cart_item first_item address_0 odd dd-product-group"
+              *ngFor="let orderItem of orderItems">
+              <td class="cart_product">
+                  <a [routerLink]="['/product-detail/', orderItem.productId]">
+                      <img [alt]="orderItem.productName" [src]="orderItem.imageUrl">
+                  </a>
+              </td>
+              <td class="cart_description">
+                  <p class="product-name">
+                      <a href="product-page.html">{{orderItem.productName}}</a>
+                  </p>
+                  <small>Size: <span>{{orderItem.size}}</span></small>
+                  <small>Color: <span>{{orderItem.color}}</span></small>
+              </td>
+              <td data-title="PRICE" class="cart_unit">
+                  <span class="price">{{orderItem.price | productPrice}}</span>
+              </td>
+
+              <td data-title="QUANTITY" class="cart_quantity text-center">
+                  <div class="cart_quantity_button clrfix">
+                      <span class="count">{{orderItem.quantity}}</span>
+                  </div>
+              </td>
+              <td class="subtotal text-center no-cls-btn" data-title="SUBTOTAL">
+                  <p>{{orderItem.quantity * orderItem.price | productPrice}}</p>
+              </td>
+          </tr>
+      </tbody>
+  </table>

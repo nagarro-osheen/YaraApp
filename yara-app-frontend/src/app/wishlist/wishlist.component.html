@@ -1,0 +1,59 @@
+<div class="pg-body">
+    <div class="container">
+     
+       <div class="row">
+         
+          <div class="col-md-10 col-sm-12 col-xs-12">
+             <h6 class="account-table-head">YOUR WISHLIST</h6>
+
+             <div class="table_block table-responsive" id="order-detail-content">
+                <table class="table table-bordered" id="cart_summary">
+                   <thead>
+                      <tr>
+                         <th colspan="2" class="cart_product first_item">Product name</th>
+                         <th class="cart_unit item">Price</th>
+                         <th class="cart_quantity item">QUANTITY</th>
+                         <th class="cart_delete last_item">ACTION</th>
+                      </tr>
+                   </thead>
+                   <tfoot class="dd-list-empty" *ngIf="!wishData"><tr><td>There is no product in wishlist!</td></tr></tfoot>
+                   <tbody class="dropdown-product-list">
+                     <tr class="cart_item dd-product-group" *ngFor="let product of wishData">
+                         <td class="cart_product">
+                            <a href="product-page.html">
+                               <img alt="Faded Short Sleeve T-shirts" src="images/prd-2.jpg">
+                            </a>
+                         </td>
+                         <td class="cart_description">
+                            <p class="product-name">
+                               <a href="product-page.html">{{product?.productName}}</a>
+                            </p>
+                            <small>Size: <span>XL</span></small>
+                            <small>Color: <span>{{product?.color}}</span></small>
+                            <small>Product Code: <span>{{product?.productId}}</span></small>
+                         </td>
+                         <td data-title="PRICE" class="cart_unit">
+                            <span class="price">$ {{product?.price}}</span>
+                         </td>
+
+                         <td class="cart_quantity text-center">
+                           <div class="cart_quantity_button clrfix">
+                              <button title="Subtract" (click)="reduceCount(quantity)" class="cart_quantity_input form-control grey btn-minus" rel="nofollow">-</button>
+                              <input type="text" [(ngModel)]="quantity" [value]=product?.quantity class="cart_quantity_input form-control grey count" autocomplete="off" size="2" disabled>
+                              <button title="Add" (click)="addCount(quantity)" class="cart_quantity_input form-control grey cart-plus" rel="nofollow">+</button>
+                           </div>
+                        </td>
+                         <td class="cart_delete text-center">
+                            <div>
+                               <a href="#" title="Buy" class="btn btn-sec-col">ADD TO CART</a><br>
+                               <a href="#" title="Remove" rel="nofollow" class="btn remove ddr"><i class="icon_close"></i> Remove</a>
+                            </div>
+                         </td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+          </div>   
+       </div>
+    </div>
+ </div>

@@ -1,0 +1,56 @@
+<div class="pg-body">
+    <div class="container">
+       
+       <div class="row">
+         
+          <div class="col-md-10 col-sm-12 col-xs-12">
+             <h6 class="account-table-head">Order History</h6>
+
+             <div class="table_block table-responsive clearfix" id="order-detail-content">
+                <table class="table table-bordered" id="cart_summary">
+                   <thead>
+                      <tr>
+                         <th colspan="2" class="cart_product first_item">Product name</th>
+                         <th>ORDER NO</th>
+                         <th>ORDER DATE</th>
+                         <th>STATUS</th>
+                         <th class="cart_unit item">PRICE</th>
+                      </tr>
+                   </thead>
+                   <tbody class="dropdown-product-list">
+                      <tr class="cart_item first_item address_0 odd dd-product-group" *ngFor="let orderItem of order.orderItems">
+                           <td class="cart_product">
+                                 <a [routerLink]="['/product-detail/', orderItem.productId]">
+                                     <img [alt]="orderItem.productName" [src]="orderItem.imageUrl">
+                                 </a>
+                             </td>
+                             <td class="cart_description">
+                                 <p class="product-name">
+                                     <a href="product-page.html">{{orderItem.productName}}</a>
+                                 </p>
+                                 <small>Size: <span>{{orderItem.size}}</span></small>
+                                 <small>Color: <span>{{orderItem.color}}</span></small>
+                             </td>
+                         <td data-title="ORDER NO" class="default">
+                            <span>#{{order.orderId}}</span>
+                         </td>
+                         <td data-title="ORDER DATE" class="date">
+                            <span>{{order.createdTime}}</span>
+                         </td>
+                         <td data-title="STATUS" class="default">
+                            <span>Open</span>
+                         </td>
+                         <td data-title="PRICE" class="cart_unit">
+                            <span class="price">{{orderItem.price | productPrice}}</span>
+                         </td>
+                      </tr>
+                   </tbody>
+                </table>
+                <div class="container col-xs-12 tfoot">
+                   <p class="row info total"><span class="pull-left col-xs-6">Total Amount</span><span class="col-xs-6 pull-right text-right">{{totalCost | productPrice}}</span></p>
+                </div>
+             </div>
+          </div>   
+       </div>
+    </div>
+ </div>

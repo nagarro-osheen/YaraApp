@@ -1,0 +1,16 @@
+<div>
+  <div class="row">
+    <a class="btn btn-default" routerLink="/profile/inventory/" routerLinkActive="btn-sec-col" [routerLinkActiveOptions]="{ exact: true }">
+      Products
+    </a>
+    <a class="btn btn-default" routerLink="categories" routerLinkActive="btn-sec-col" [routerLinkActiveOptions]="{ exact: true }">
+      Categories
+    </a>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-12-md">
+    <router-outlet></router-outlet>
+  </div>
+  </div>
+</div>

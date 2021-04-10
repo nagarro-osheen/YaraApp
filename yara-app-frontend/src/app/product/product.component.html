@@ -1,0 +1,33 @@
+    <figure [routerLink]="['/product-detail', product?.id]">
+       <a >
+          <img [src]="product?.mainImageUrl">
+       </a>
+       <label class="pl-badge" *ngIf="newBadge">NEW</label>
+       <figcaption>
+          <a (click)="addToCart()" class="pl-button pl-addcart" 
+          data-toggle="tooltip" data-placement="top" title="Add To Cart">
+            <i class="icon-bag"></i>
+          </a>
+          <a (click)="quickView()" class="pl-button pl-qview" 
+          data-toggle="tooltip" data-placement="top" title="Quick View">
+            <i class="icon-eye"></i>
+          </a>
+          <a (click)="compare()" class="pl-button pl-compare"
+           data-toggle="tooltip" data-placement="top" title="Compare">
+            <i class="arrow_left-right_alt"></i>
+          </a>
+          <a (click)="addToWishlist()" class="pl-button pl-wishlist" 
+          data-toggle="tooltip" data-placement="top" title="Add To Wish List">
+            <i class="icon-heart"></i>
+          </a>
+       </figcaption>
+    </figure>
+    <div class="pl-caption" *ngIf="product">
+       <p class="pl-price-block">
+          <!-- <span class="pl-price-old">$ 660.00</span> -->
+          <span class="pl-price">Rs {{product?.price}}</span>
+       </p>
+       <p class="pl-name">{{product?.productName}}</p>
+       <!-- <p class="pl-name">{{product.description}}</p> -->
+       <span class="stars-rating stars-{product.ratings}"><span class="stars"></span></span>
+    </div>

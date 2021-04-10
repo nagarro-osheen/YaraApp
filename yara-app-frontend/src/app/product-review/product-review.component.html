@@ -1,0 +1,42 @@
+<div class="pg-body">
+    <div class="container review">
+       <div class="row comment" *ngFor="let review of reviews; let i=index">
+          <div class="container">
+             <div class="img-cover"><img src="images/review/avatar-1.jpg" alt="avatar"></div>
+             <div class="data">
+               <div class="comment-info">
+                   <span class="name">{{review.name}}</span>
+                   <span class="stars-rating stars-{{review.ratings}}">
+                      <span class="stars"></span>
+                   </span>
+                </div>
+                <span class="like-wrapper col-xs-12 col-sm-3">
+                   <span class="like">
+                      <a (click)="likeReview(i)">
+                        <span class="icon-like"></span></a><span class="count">{{review.likes}}</span>
+                   </span>
+                   <span class="dislike">
+                      <a (click)="dislikeReview(i)">
+                        <span class="icon-dislike"></span></a><span class="count">{{review.dislike}}</span>
+                   </span>
+                </span>
+                <p class="comment-text">{{review.review}}</p>
+             </div>
+          </div>
+       </div>
+       <!---To do pagination for reviews-->
+       <!-- <div class="row nav">
+          <div class="wp-pagenavi col-xs-12">
+             <ul class="pagination">
+                <li class="active"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#"><i class="arrow_carrot-right"></i></a></li>
+             </ul>
+          </div>
+       </div> -->
+    </div>
+ </div>
+

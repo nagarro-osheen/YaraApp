@@ -1,0 +1,35 @@
+<div class="col-md-6 col-xs-12">
+    <div class="form-group">
+       <input type="text" placeholder="First Name *" class="placeholder-fix form-control"
+          name="f_name" [(ngModel)]="address.firstName" (change)="fieldChanged()">
+    </div>
+    <div class="form-group">
+       <input type="text" placeholder="Last Name *" class="placeholder-fix form-control" name="l_name"
+          [(ngModel)]="address.lastName" (change)="fieldChanged()">
+    </div>
+    <div class="form-group">
+       <input type="email" placeholder="E-mail Address *" class="placeholder-fix form-control"
+          name="email" [(ngModel)]="address.email" (change)="fieldChanged()">
+    </div>
+    <div class="form-group">
+       <input type="tel" placeholder="Phone *" class="placeholder-fix form-control" name="phone"
+          [(ngModel)]="address.phone" (change)="fieldChanged()">
+    </div>
+    <div class="form-group">
+        <input type="tel" placeholder="Address *" class="placeholder-fix form-control" name="address"
+           [(ngModel)]="address.addressValue" (change)="fieldChanged()">
+     </div>
+    <div class="form-group">
+       <input type="text" placeholder="Company " class="placeholder-fix form-control" name="company"
+          [(ngModel)]="address.company" (change)="fieldChanged()">
+    </div>
+ 
+ </div>
+ <div class="col-md-6 col-xs-12">
+    <app-region-selector [address]="address" (valid)="isRegionValid($event)"
+          (outputAddress)="setRegionAddress($event)"></app-region-selector>
+    <div class="form-group">
+       <input type="text" placeholder="Postcode / Zip * " class="placeholder-fix form-control"
+          name="zip_code" [(ngModel)]="address.postalCode" (change)="fieldChanged()">
+    </div>   
+ </div>

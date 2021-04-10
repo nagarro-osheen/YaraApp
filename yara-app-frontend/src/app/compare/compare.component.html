@@ -1,0 +1,152 @@
+<div class="pg-body">
+    <div class="container">
+       <div class="row">
+          <div class="gap-60"></div>
+          <div class="col-xs-12">
+             <div class="table_block table-responsive compare-div" id="order-detail-content">
+                <table class="table table-bordered compare-table" id="cart_summary">
+                   <tfoot class="dd-list-empty"><tr><td>There is no product in compare list!</td></tr></tfoot>
+                   <tbody class="dropdown-product-list">
+                     
+                     <!-- <tr class="compare-image cart_item dd-product-group" 
+                     *ngFor="let item of obj | keys">
+                        <td class="row-title">{{ item.key | titlecase }}</td>
+                        <td *ngFor="let items of item.value">
+                           <p>
+                              {{items | json}}
+                           </p>
+                        </td>
+                     </tr> -->
+
+                       <tr class="compare-image cart_item dd-product-group">
+                         <td class="row-title">PRODUCT IMAGE</td>
+                         <td class="cart_product" *ngFor="let item of compareList">
+                               <span class="img-cover">
+                                  <img
+                                  [src]="item.mainImageUrl">
+                               </span>
+                           
+                         </td>
+                      </tr>
+                       <tr class="compare-name cart_item dd-product-group">
+                         <td class="row-title">PRODUCT NAME</td>
+                         <td class="cart_description" *ngFor="let item of compareList">
+                            <p class="product-name">
+                               {{item.productName}}
+                            </p>
+                         </td>
+                      </tr>
+
+                      <tr class="compare-rating cart_item dd-product-group">
+                         <td class="row-title">PRODUCT RATING</td>
+                         <td *ngFor="let item of compareList">
+                            <span class="stars-rating stars-{item.ratings}"><span class="stars"></span>
+                           </span>
+                        </td>
+                      </tr>
+
+                      <tr class="compare-description cart_item dd-product-group">
+                         <td class="row-title">PRODUCT DESCRIPTION</td>
+                         <td *ngFor="let item of compareList">
+                            <p>
+                               {{item.description}}
+                            </p>
+                        </td>
+                        
+                      </tr>
+                    
+                      <tr class="compare-availability cart_item dd-product-group">
+                         <td class="row-title">AVAILABILITY</td>
+                         <td *ngFor="let item of compareList">
+                            <span></span><p *ngIf="item.variants[0].quantity>=0">
+                               In Stock
+                            </p>
+                            <p *ngIf="!item.variants[0].quantity>0">
+                               Out of Stock
+                            </p>
+                        </td>
+                      </tr>
+                      <tr class="compare-price cart_item dd-product-group">
+                         <td class="row-title">
+                            PRICE
+                        </td>
+                        <td data-title="PRICE" class="cart_unit" *ngFor="let item of compareList">
+                            <span class="price">Rs. {{item.price}}</span>
+                        </td>
+                       
+                      </tr>
+
+                      <!--Load dynamic values from variantsArray-->
+                      <tr class="compare-image cart_item dd-product-group" 
+                      *ngFor="let item of variantsArray | keyvalue">
+                     
+                      <p *ngFor="let i of item | keyvalue"></p>
+                        <td class="row-title"></td>
+                           <td >
+                              <!-- <p >
+                                 {{item.color}}
+                                 {{item.size}}
+                              </p> -->
+                           </td>
+                      </tr>
+                    
+
+                      <!-- <tr class="compare-description cart_item dd-product-group">
+                        <td class="row-title">PRODUCT DESCRIPTION</td>
+                        <td *ngFor="let item of compareList">
+                           <p>
+                              {{item.description}}
+                           </p>
+                       </td>
+                       
+                     </tr> -->
+
+                      <!-- <tr class="compare-add-cart cart_item dd-product-group">
+                         <td class="row-title">ADD TO CART</td><td class="cart_delete text-center">
+                            <div>
+                               <a href="shopping-cart.html" title="Buy" class="btn btn-sec-col">ADD TO CART</a><br>
+                            </div>
+                         </td><td class="cart_delete text-center">
+                            <div>
+                               <a href="shopping-cart.html" title="Buy" class="btn btn-sec-col">ADD TO CART</a><br>
+                            </div>
+                         </td><td class="cart_delete text-center">
+                            <div>
+                               <a href="shopping-cart.html" title="Buy" class="btn btn-sec-col ">ADD TO CART</a><br>
+                            </div>
+                         </td><td class="cart_delete text-center">
+                            <div>
+                               <a href="shopping-cart.html" title="Buy" class="btn btn-sec-col">ADD TO CART</a><br>
+                            </div>
+                         </td>
+                      </tr> -->
+                      <!-- <tr class="compare-control cart_item dd-product-group">
+                         <td class="row-title">&nbsp;</td><td class="cart_delete text-center">
+                            <div>
+                               <a href="wishlist.html" title="Add to Wishlist" rel="nofollow" class="add-wishlist remove"><span class="icon-heart"></span>Add to Wishlist</a>
+                               <a href="#" title="Remove" rel="nofollow" class="remove ddr"><i class="icon_close"></i> Remove</a>
+                            </div>
+                         </td><td class="cart_delete text-center">
+                            <div>
+                               <a href="wishlist.html" title="Add to Wishlist" rel="nofollow" class="add-wishlist remove"><span class="icon-heart"></span>Add to Wishlist</a>
+                               <a href="#" title="Remove" rel="nofollow" class="remove ddr"><i class="icon_close"></i> Remove</a>
+                            </div>
+                         </td><td class="cart_delete text-center">
+                            <div>
+                               <a href="wishlist.html" title="Add to Wishlist" rel="nofollow" class="add-wishlist remove"><span class="icon-heart"></span>Add to Wishlist</a>
+                               <a href="#" title="Remove" rel="nofollow" class="remove ddr"><i class="icon_close"></i> Remove</a>
+                            </div>
+                         </td><td class="cart_delete text-center">
+                            <div>
+                               <a href="wishlist.html" title="Add to Wishlist" rel="nofollow" class="add-wishlist remove"><span class="icon-heart"></span>Add to Wishlist</a>
+                               <a href="#" title="Remove" rel="nofollow" class="remove ddr"><i class="icon_close"></i> Remove</a>
+                            </div>
+                         </td>
+                      </tr> -->
+                   </tbody>
+                </table>
+             </div>
+          </div>   
+       </div>
+    </div>
+ </div>

@@ -1,0 +1,145 @@
+<div class="pg-body" *ngIf="isComponentReady">
+   <checkout-updated-cart-dialog *ngIf="areOrderItemsChanged && currentStep !== orderSteps.paymentMethod" 
+   [orderItemsDeleted]="orderItemsToBeDeleted" [orderItemsUpdated]="orderItemsToBeUpdated" (dialogClosed)="dialogClosed()"></checkout-updated-cart-dialog>
+   <checkout-updated-order-dialog *ngIf="areOrderItemsChanged && currentStep === orderSteps.paymentMethod" 
+   [orderItemsDeleted]="orderItemsToBeDeleted" [orderItemsUpdated]="orderItemsToBeUpdated" 
+   (dialogClosed)="dialogClosed()" (placeOrder)="placeFinalOrder()"></checkout-updated-order-dialog>
+   <div class="container">
+      <br/>
+      <div class="row">
+         <!-- <div class="container checkout-menu">
+            <a href="" class="btn btn-yet-col col-sm-3 col-xs-12">ORDER COMPLETE</a>
+            <a href="" class="btn btn-yet-col col-sm-3 col-xs-12">PAYMENT METHOD</a>
+            <a href="" class="btn btn-yet-col col-sm-3 col-xs-12">BILLING &amp; SHIPPING</a>
+            <a href="" class="btn btn-third-col col-sm-3 col-xs-12">CHECKOUT OPTION</a>
+         </div> -->
+      </div>
+      <div class="row">
+         <div class="you-order mobile-collapse col-md-5 col-xs-12 pull-right clearfix">
+            <div class="mobile-collapse-header">YOUR ORDER</div>
+            <div class="table_block table-responsive clearfix mobile-collapse-body" id="order-detail-content">
+               <div class="dropdown-product-list">
+                  <order-products-summary *ngIf="orderItemsReady" [orderItems]="cart.orderItems"></order-products-summary>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-7 col-xs-12 pull-left">
+            <div id="accordion-order">
+               <div class="accordion-group panel" *ngIf="!isUserLoggedIn">
+                  <a href="#collapse-1" data-parent="#accordion-order" data-toggle="collapse" class="accordion-header">
+                     CHECKOUT OPTION
+                  </a>
+                  <div class="collapse show" id="collapse-1">
+                     <div class="accordion-body">
+                        <div class="row">
+                           <div class="col-md-6 col-xs-12">
+                              <form action="#">
+                                 <h6>NEW CUSTOMER</h6>
+                                 <p>Register with us for future convenience</p>
+                                 <input type="checkbox" class="stl" value="2" name="checkbox" id="checkbox1">
+                                 <label class="stl checkbox" for="checkbox1"><span></span>Register Account</label><br>
+                                 <input type="checkbox" checked="checked" class="stl" value="3" name="checkbox"
+                                    id="checkbox2">
+                                 <label class="stl checkbox" for="checkbox2"><span></span>Checkout us Guest</label><br>
+                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, eiusmod tempor incididunt
+                                    ut labore et dolore magna aliqua. veniam, quis nostrud nostrud exercitation
+                                    laboris. </p>
+                                 <button type="submit" class="btn btn-third-col btn-md">CONTINUE</button>
+                              </form>
+                           </div>
+                           <div class="col-md-6 col-xs-12">
+                              <form (ngSubmit)="checkoutLoginForm.form.valid && validateUser(usermodel)"
+                                 #checkoutLoginForm="ngForm">
+                                 <h6>REGISTERED CUSTOMER</h6>
+                                 <p>If you have an account with us, please log in.</p>
+                                 <div class="form-group">
+
+                                    <label class="type-text">Email *<input type="email" #email="ngModel"
+                                          [(ngModel)]="usermodel.email" class="form-control placeholder-fix"
+                                          name="email"
+                                          [ngClass]="{ 'is-invalid': checkoutLoginForm.submitted && email.invalid }"
+                                          required></label>
+                                    <div *ngIf="checkoutLoginForm.submitted && email.invalid" class="invalid-feedback">
+                                       <div *ngIf="email.errors.required"> Email is required</div>
+                                    </div>
+                                 </div>
+                                 <div class="form-group">
+                                    <label class="type-text">Password *<input type="password" #password="ngModel"
+                                          [(ngModel)]="usermodel.password" class="form-control placeholder-fix"
+                                          name="password"
+                                          [ngClass]="{ 'is-invalid': checkoutLoginForm.submitted && password.invalid }"
+                                          required></label>
+                                    <div *ngIf="checkoutLoginForm.submitted && password.invalid"
+                                       class="invalid-feedback">
+                                       <div *ngIf="password.errors.required"> Password is required</div>
+                                    </div>
+                                 </div>
+                                 <input type="checkbox" checked="checked" class="stl" value="3" name="checkbox"
+                                    id="checkbox3">
+                                 <label class="stl checkbox" for="checkbox3"><span></span>Remember Password</label><br>
+                                 <button class="btn btn-third-col btn-md" type="submit">LOGIN</button>
+                              </form>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="accordion-group panel">
+                  <a href="#collapse-2" data-parent="#accordion-order" data-toggle="collapse" class="accordion-header"
+                     [ngClass]="{'collapsed': currentStep!==orderSteps.billingInfo}">
+                     BILLING INFORMATION
+                  </a>
+                  <div class="collapse" id="collapse-2" [ngClass]="{'show': currentStep === orderSteps.billingInfo}">
+                     <div class="accordion-body">
+                        <div class="row">
+                           <billing-shipping-address [billingAddress]="order.billingAddress"
+                              [shippingAddress]="order.shippingAddress"
+                              (sameBillingShippingAddress)="sameShippingAddressChanged($event)"
+                              (completedBillingAddress)="setBillingAddress($event)"
+                              (completedShippingAddress)="setShippingAddress($event)"
+                              (addressesValid)="setAddressesValid($event)"></billing-shipping-address>
+                           <div class=" col-xs-12">
+                              <div>
+                                 <button class="btn btn-third-col btn-md" type="submit" [disabled]="!areAddressesValid"
+                                    (click)="nextStep(orderSteps.paymentMethod)">
+                                    CONTINUE</button>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="accordion-group panel">
+                     <a href="#collapse-4" data-parent="#accordion-order" data-toggle="collapse"
+                        class="accordion-header" [ngClass]="{'collapsed': currentStep!==orderSteps.paymentMethod}">
+                        PAYMENT METHOD
+                     </a>
+                     <div class="collapse" id="collapse-4" style="height: 0px;"
+                        [ngClass]="{'show': currentStep === orderSteps.paymentMethod}">
+                        <div class="accordion-body">
+                           <div class="row">
+                              <payment-method (paymentMethod)="updatedPaymentMethod($event)"></payment-method>
+                           </div>
+                           <br>
+                           <div class="row big-button">
+                              <div class="col-xs-12 clearfix">
+                                 <button class="btn btn-lg btn-third-col" type="submit"
+                                    [disabled]="!areAddressesValid || !paymentMethodValid" (click)="placeOrder()">PLACE ORDER</button>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-12">
+                     <h6 class="accordion-h6">ORDER NOTES</h6>
+                     <div class="required form-group">
+                        <textarea rows="3" class="form-control placeholder-fix" placeholder="Notes about your order"
+                           [(ngModel)]="order.notes"></textarea>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>

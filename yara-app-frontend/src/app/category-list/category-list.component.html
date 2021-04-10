@@ -1,0 +1,30 @@
+<div>
+    <div class="row">
+      <h3>Categories</h3>
+      <button routerLink="../addcategory" class="btn btn-sec-col pull-right">Add New Category</button>
+    </div>
+    <br>
+     <p-table [value]="categories">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Parent</th>
+                <th>Path</th>
+                <th>Actions</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-category>
+            <tr>
+                <td>{{category.id}}</td>
+                <td>{{category.name}}</td>
+                <td>{{category.parent}}</td>
+                <td>{{category.path}}</td>
+                <td><a [routerLink]="['../editcategory',category.id]" ><button class="btn">Edit</button></a>
+                  <button class="btn"  (click)="deleteCategory(category.id)">Delete</button></td>
+            </tr>
+        </ng-template>
+    </p-table>
+    
+    
+    </div>

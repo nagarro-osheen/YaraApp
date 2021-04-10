@@ -1,0 +1,80 @@
+<div class="pg-body">
+    <div class="container">
+       <div class="row">
+          <div class="container">
+             <table class="user-info">
+                <tr>
+                   <td class="picture">
+                      <div class="img-cover"><img src="{{uploadPic}}" alt=""></div>
+                      <h6 class="name">MICHAEL DOE</h6>
+                      <div class="change-picture">
+                         <i class="icon-camera"></i>
+                         <input type="file" title="Choose a picture" (change)="uploadPicture($event)">
+                      </div>
+                   </td>
+                   <td>
+                      <div class="col-xs-12 wellcome">
+                         <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
+                            <h4>Good Morning <span>{{getName()}}</span></h4>
+                            <p>Welcome to your account. Here you can 
+                            manage all of your personal information.</p>
+                         </div>
+                         <div class="col-lg-5 col-xs-12 col-sm-6 pull-right">
+                            <div class="row">
+                               <div class="col-xs-12 col-sm-6">
+                                  <p class="my-orders">My Orders:</p>
+                                  <p>You have 2 item in your cart</p>
+                               </div>
+                               <div class="col-xs-12 col-sm-6 view-cart">
+                                  <button [routerLink]="['/shopping-cart']" class="btn btn-sec-col"><i class="icon-bag"></i>&nbsp;&nbsp;VIEW CART</button>
+                               </div>
+                            </div>
+                         </div>
+                      </div>
+                      <div class="col-xs-12 last">
+                         <!--To do : last loged on info
+                         <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
+                            <p>Last loged on:<span>   19.06.2016 – 10:23 pm</span></p>
+                         </div>
+                         -->
+                         <!---To do : last item ordered
+                         <div class="col-lg-5 col-xs-12 col-sm-6 pull-right">
+                            <div class="row">
+                               <p class="col-xs-12">Last item ordered:<span>  Majestic Beecroft Sweater</span>  <span class="price">$800</span></p>
+                            </div>
+                         </div>
+                         -->
+                      </div>
+                   </td>
+                </tr>
+             </table>
+          </div>
+       </div>
+       <div class="row">
+          <div class="col-md-2 left-menu">
+             <a>
+                <div routerLink="/profile" routerLinkActive="active" 
+                [routerLinkActiveOptions]="{ exact: true }">
+                  <i class="icon-user"></i><br><span>YOUR PROFILE</span>
+               </div></a>
+             <a *ngIf="isUserAdmin()">
+                <div routerLink="/profile/inventory" routerLinkActive="active">
+                  <i class="icon-clock"></i><br><span>Inventory</span></div>
+            </a>
+             <a>
+                <div [routerLink]="['/profile/wishlist']" routerLinkActive="active">
+                  <i class="icon-heart"></i><br><span>WISHLIST</span>
+               </div></a>
+             <a>
+                <div [routerLink]="['/profile/order-history']" routerLinkActive="active">
+                   <i class="icon-clock"></i><br><span>HISTORY</span>
+               </div></a>
+          </div>
+          <div class="col-md-10">
+              <router-outlet></router-outlet>
+          </div>
+         
+       </div>
+    </div>
+ </div>
+

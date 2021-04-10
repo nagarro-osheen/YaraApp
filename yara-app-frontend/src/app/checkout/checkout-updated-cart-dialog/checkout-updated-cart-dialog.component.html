@@ -1,0 +1,15 @@
+<p-dialog header="Items updated in cart" [(visible)]="displayDialog" [modal]="true" [responsive]="true"
+    [style]="{width: '350px', minWidth: '350px'}" [minY]="70" [maximizable]="true" [baseZIndex]="10000"
+    (onHide)="closeDialog()">
+    <div class="row" *ngIf="orderItemsUpdated.length > 0">
+        Following items have been updated
+        <checkout-updated-cart-products-info [orderItems]="orderItemsUpdated"></checkout-updated-cart-products-info>
+    </div>
+    <div class="row" *ngIf="orderItemsDeleted.length > 0">
+        Following items have been removed because they are unavaiable
+        <checkout-updated-cart-products-info [orderItems]="orderItemsDeleted"></checkout-updated-cart-products-info>
+    </div>
+    <p-footer>
+        <button type="button" pButton icon="pi pi-check" (click)="displayDialog=false" label="OK"></button>
+    </p-footer>
+</p-dialog>

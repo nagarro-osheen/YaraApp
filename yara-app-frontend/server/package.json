@@ -1,0 +1,16 @@
+{
+  "name": "amcart-frontend",
+  "version": "1.0.0",
+  "description": "Frontend service for Amcart",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Swaraj,Aarzoo,Saksham,Osheen,Vibhu",
+  "license": "ISC",
+  "dependencies": {
+    "consul": "^0.34.0",
+    "express": "^4.16.3",
+    "uuid": "^3.3.2"
+  }
+}

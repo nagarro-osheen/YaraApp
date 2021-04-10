@@ -1,0 +1,11 @@
+<cart-products-info [orderItems]="orderItems" (cartTotal)="updateCartTotal($event)">
+</cart-products-info>
+<div class="container col-xs-12 tfoot">
+    <p class="row info"><span class="pull-left col-xs-6">Cart Subtotal:</span><span
+            class="pull-right col-xs-6 text-right">{{cartSubTotal | productPrice}}</span></p>
+    <p class="row info"><span class="pull-left col-xs-6">Shipping:</span><span
+            class="pull-right col-xs-6 text-right gray">Free
+            Shipping</span></p>
+    <p class="row info total"><span class="pull-left col-xs-6">ORDER TOTAL:</span><span
+            class="col-xs-6 pull-right text-right">{{cartSubTotal | productPrice}}</span></p>
+</div>
